@@ -3,4 +3,7 @@ inventory = {"Зелье лечения": 2, "Деревянный меч": 1, "
 
 def show_inventory():
     """Выводит все предметы из инвентаря в формате: 'Название: Количество шт.'"""
-    pass # TODO: Напиши код здесь
+    pass # TODO: 
+    for item,kolvo in inventory.items():
+        print(f"{item}: {kolvo}шт")
+
