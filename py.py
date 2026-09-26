@@ -19,3 +19,9 @@ def use_item(item_name):
         inventory[item_name] - 1
     else:
         print("нет такого предмета")
+        
+# --- ТЕСТОВАЯ ЗОНА ---
+print("--- Начальный инвентарь ---")
+show_inventory()
+
+
