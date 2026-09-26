@@ -7,3 +7,7 @@ def show_inventory():
     for item,kolvo in inventory.items():
         print(f"{item}: {kolvo}шт")
 
+def add_item(item_name, count):
+    """Добавляет предмет. Если предмет уже есть, увеличивает количество. Если нет - добавляет новый."""
+    pass # TODO: 
+    inventory[item_name] = inventory.get(item_name, 0) + count
