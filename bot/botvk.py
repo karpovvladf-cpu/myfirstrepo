@@ -14,10 +14,4 @@ async def hello_handler(message: Message):
     rand = random.randint(1,6)
     await message.answer(f"выпало: {rand}")
 
-@bot.on.message(text = "бросок 2")
-async def hello_handler(message: Message):
-    rand = random.randint(1,6)
-    await message.answer(f"выпало: {rand}")
-
-
 bot.run()
