@@ -1,10 +1,18 @@
 import os
+from vkbottle.bot import Bot
+from vkbottle.bot import Message
 from dotenv import load_dotenv
+import random
 load_dotenv()
-vk_token = os.getenv("my_token")
 
-if vk_token:
-    vk__token = vk_token[:5] + "*" * (len(vk_token) - 5)
-    print(vk__token)
-else:
-    print("првоерьте .env")
+vk_token = os.getenv("my_token")
+bot = Bot(token=vk_token)
+
+
+@bot.on.message(text = "бросок")
+async def hello_handler(message: Message):
+    rand = random.randint(1,6)
+    await message.answer(f"выпало: {rand}")
+
+
+bot.run()
