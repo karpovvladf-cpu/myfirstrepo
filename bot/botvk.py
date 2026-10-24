@@ -9,9 +9,16 @@ vk_token = os.getenv("my_token")
 bot = Bot(token=vk_token)
 
 
+privet = 0
 @bot.on.message()
 async def hello_handler(message: Message):
-    if message.text == "секрет" or message.text == "пароль":
+    global privet
+    if message.text.lower() == "привет":
+        privet = privet + 1
+        await message.answer(message.text) 
+    elif message.text.lower() == "статистика":
+        await message.answer(f"Ты приветствовал меня {privet} раз!")
+    elif message.text == "секрет" or message.text == "пароль":
         await message.answer("Я никому не скажу! 🤫")
     else:
         await message.answer(message.text) 
