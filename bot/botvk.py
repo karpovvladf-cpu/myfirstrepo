@@ -9,17 +9,21 @@ vk_token = os.getenv("my_token")
 bot = Bot(token=vk_token)
 
 
-@bot.on.message(text = "бросок")
+@bot.on.message()
 async def hello_handler(message: Message):
-    rand = random.randint(1,6)
-    await message.answer(f"выпало: {rand}")
+    if message.text == "секрет" or message.text == "пароль":
+        await message.answer("Я никому не скажу! 🤫")
+    else:
+        await message.answer(message.text) 
+    
+        
 
 
-@bot.on.message(text = "бросок 2")
-async def hello_handler(message: Message):
-    rand2 = random.randint(1,6)
-    rand3 = random.randint(1,6)
-    await message.answer(f"выпало: {rand2} и {rand3}, сумма: {rand2 + rand3}")
 
 
 bot.run()
+
+
+# Уровень Junior: "Бот-повторялка с характером"
+# ● Сделайте так, чтобы бот повторял всё, что написал юзер (Эхо-бот).
+# ● НО! Если юзер написал слово "секрет" или "пароль", бот должен ответить: "Я никому не скажу! 🤫" и НЕ повторять это слово.
